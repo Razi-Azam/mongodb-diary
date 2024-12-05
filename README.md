@@ -34,7 +34,7 @@ use shop
 ```
 - Create a new collection in the shop database.
 - Here, ```db``` refers to the selected database which is shop, ```products``` is the new collection which is to be created, and ```insertOne``` command is used for inserting a new data.
-- A pair of curly braces inside the insertOne command refres to the JSON object.
+- A pair of curly braces inside the insertOne command refers to the JSON object.
 
 ```javaScript
 db.products.insertOne({name: "A Story Book", price: 19.99})
