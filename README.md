@@ -86,6 +86,18 @@ db.products.insertOne({name: "A Computer", price: 1229.99, description: "A high 
 
 
 
+### JSOn vs BSON
+| **Aspect**          | **JSON (JavaScript Object Notation)**               | **BSON (Binary JSON)**                        |
+|----------------------|-----------------------------------------------------|-----------------------------------------------|
+| **Definition**       | Text-based data format for representing objects.    | Binary-encoded format optimized for MongoDB.  |
+| **Usage in MongoDB** | Used for data exchange and API interactions.        | Used internally for data storage and querying. |
+| **Format**           | Human-readable text format.                         | Machine-readable binary format.               |
+| **Speed**            | Slower to parse due to text-based nature.           | Faster to parse due to binary representation. |
+| **Size**             | Larger in size as it's plain text.                  | Smaller and more efficient due to compression.|
+| **Data Types**       | Limited to standard JSON types (e.g., string, number). | Supports additional types (e.g., Date, ObjectId, Binary). |
+| **Readability**      | Easily readable by humans.                          | Not directly human-readable.                  |
+| **Efficiency**       | Less efficient for storage and querying.            | Optimized for MongoDB performance.            |
+| **Example**          | `{ "name": "Alice", "age": 25 }`                    | Binary representation of the same object.     |
 
 
 
