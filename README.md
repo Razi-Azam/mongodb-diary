@@ -6,7 +6,7 @@
 
 1. [Get Started with Mongosh](#connect-to-the-mongodb-instance)
 
-2. 
+2. [CRUD Operations & MongoDB](#crud-oeprations--mongodb)
 
 
 
@@ -86,7 +86,7 @@ db.products.insertOne({name: "A Computer", price: 1229.99, description: "A high 
 
 
 
-### JSOn vs BSON
+### JSON vs BSON
 | **Aspect**          | **JSON (JavaScript Object Notation)**               | **BSON (Binary JSON)**                        |
 |----------------------|-----------------------------------------------------|-----------------------------------------------|
 | **Definition**       | Text-based data format for representing objects.    | Binary-encoded format optimized for MongoDB.  |
@@ -99,11 +99,20 @@ db.products.insertOne({name: "A Computer", price: 1229.99, description: "A high 
 | **Efficiency**       | Less efficient for storage and querying.            | Optimized for MongoDB performance.            |
 | **Example**          | `{ "name": "Alice", "age": 25 }`                    | Binary representation of the same object.     |
 
-
-
-
+![alt text](image-2.png)
 
 
 [Go to Top ⬆️ ](#contents)
 
 ---
+
+
+## CRUD oeprations & MongoDB
+
+### Create: 
+- ```insertOne(data, options)``` is used to insert some data into a collection. It also allows us to pass some options along with data.
+- with ```insertMany(data, options)```, we can insert more than one data at a time.
+
+### Read
+- The data can be read with the help of ```find(filter, options)``` method.
+- ```findOne(filter, options)``` will retrieve the first matching document.
