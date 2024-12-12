@@ -107,7 +107,7 @@ db.products.insertOne({name: "A Computer", price: 1229.99, description: "A high 
 ---
 
 
-## CRUD oeprations & MongoDB
+## CRUD operations & MongoDB
 
 ### Create: 
 - ```insertOne(data, options)``` is used to insert some data into a collection. It also allows us to pass some options along with data.
@@ -116,3 +116,24 @@ db.products.insertOne({name: "A Computer", price: 1229.99, description: "A high 
 ### Read
 - The data can be read with the help of ```find(filter, options)``` method.
 - ```findOne(filter, options)``` will retrieve the first matching document.
+
+```javaScript
+```
+
+### Update
+- The data can be updated using ```updateOne(filter, data, options)``` method
+- ```updateMany(filter, data, options)```to update many data at a time.
+- Here, the argument "filter" is passed to find the data which needs to be changed.
+- ```replaceOne(filter, data, options)``` is used for replacing the entire document with a new one.
+
+### Delete
+- We can delete one or many data using ```deleteOne(filter, options)``` or ```deleteMany(filter, options)```.
+
+```javaScript
+db.collectionName.deleteOne({keyName: "value"})
+
+or
+//to delete many, we should insert a common key in all the data
+db.collectionName.deleteMany({commonKeyName: "common value"})
+
+```
