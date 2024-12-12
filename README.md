@@ -113,10 +113,32 @@ db.products.insertOne({name: "A Computer", price: 1229.99, description: "A high 
 - ```insertOne(data, options)``` is used to insert some data into a collection. It also allows us to pass some options along with data.
 - with ```insertMany(data, options)```, we can insert more than one data at a time.
 
+- Pass an array of JSON data to insertMany()
+```JavaScript
+db.flightData.insertMany([
+  {
+    "departureAirport": "MUC",
+    "arrivalAirport": "SFO",
+    "aircraft": "Airbus A380",
+    "distance": 12000,
+    "intercontinental": true
+  },
+  {
+    "departureAirport": "LHR",
+    "arrivalAirport": "TXL",
+    "aircraft": "Airbus A320",
+    "distance": 950,
+    "intercontinental": false
+  }
+]);
+
+```
+
 ### Read
 - The data can be read with the help of ```find(filter, options)``` method.
 - ```findOne(filter, options)``` will retrieve the first matching document.
 
+- find() with arguments
 ```javaScript
 ```
 
@@ -125,6 +147,9 @@ db.products.insertOne({name: "A Computer", price: 1229.99, description: "A high 
 - ```updateMany(filter, data, options)```to update many data at a time.
 - Here, the argument "filter" is passed to find the data which needs to be changed.
 - ```replaceOne(filter, data, options)``` is used for replacing the entire document with a new one.
+
+```javaScript
+```
 
 ### Delete
 - We can delete one or many data using ```deleteOne(filter, options)``` or ```deleteMany(filter, options)```.
