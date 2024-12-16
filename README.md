@@ -139,7 +139,9 @@ db.flightData.insertMany([
 - ```findOne(filter, options)``` will retrieve the first matching document.
 
 - find() with arguments
+
 ```javaScript
+db.flightData.find({departureAirport: 'MUC'})
 ```
 
 ### Update
@@ -149,12 +151,17 @@ db.flightData.insertMany([
 - ```replaceOne(filter, data, options)``` is used for replacing the entire document with a new one.
 
 ```javaScript
+db.flightData.updateMany({}, {$set : {marker: "toDelete"}})
 ```
 
 ### Delete
 - We can delete one or many data using ```deleteOne(filter, options)``` or ```deleteMany(filter, options)```.
 
 ```javaScript
+
+db.flightData.deleteMany({marker: "toDelete"})
+
+
 db.collectionName.deleteOne({keyName: "value"})
 
 or
