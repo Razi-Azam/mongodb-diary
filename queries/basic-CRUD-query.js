@@ -1,6 +1,7 @@
 // Check if flightData collection is empty
 db.flightData.find();
 
+//---------Create-----------
 // Insert an array of JSON data using insertMany()
 db.flightData.insertMany([
   {
@@ -30,6 +31,7 @@ db.flightData.insertMany([
 }
 */
 
+//---------Read-----------
 // Run the command to view the data in the collection
 db.flightData.find();
 
@@ -75,7 +77,7 @@ db.flightData.find({departureAirport: 'MUC'})
 
 
 // Add one more data
-db.flightData.addOne({departureAirport: "TXL", arrivalAirport: "LHR"})
+db.flightData.insertOne({departureAirport: "TXL", arrivalAirport: "LHR"})
 
 //view the collection
 db.flightData.find()
@@ -108,6 +110,7 @@ db.flightData.find()
 
 */
 
+//---------Update-----------
 // Update Many
 db.flightData.updateMany({}, {$set : {marker: "toDelete"}})
 
@@ -142,6 +145,7 @@ flightData>
 
 */
 
+//---------Delete-----------
 //delete Many
 db.flightData.deleteMany({marker: "toDelete"})
 
