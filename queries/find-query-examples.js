@@ -90,3 +90,13 @@ db.flightData.findOne({distance: {$gt : 900}})
 }
 */
 
+//---------**find() and the cursor object-----------------------
+
+db.passengers.find().forEach(passengerData => {printjson(passengerData)})
+
+/*
+
+result is same as passenger.json file in the dummy-data folder */
+
+
+

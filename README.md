@@ -169,3 +169,37 @@ or
 db.collectionName.deleteMany({commonKeyName: "common value"})
 
 ```
+
+
+### 🔎 find() concepts and examples
+
+**Q. Find all flights with a distance > 10000 KM in flightData.**
+
+```javaScript
+db.flightData.find({distance: {$gt : 10000}})
+```
+
+- Here, ```$gt``` (Greater Than) is a query operator used to filter documents where a field's value is greater than a specified value.
+- This query returns all documents where the distance field is greater than 1000.
+
+
+**find() and the cursor object**
+- ```find()``` command doesn't give all the data but a cursor object. It doesn't give an array of all the documents in a collection. 
+- It is actually make sense because a collection can ve very big. So instead if sending a huge data, it gives  back a cursor object which is an object with a lot of metadata behind it that due to which we can loop through the results.
+- The ```it``` command does the same.
+
+- However, we can view all the data using "toArray()" method.
+
+```
+db.passengers.find().toArray()
+```
+
+**forEach()**
+- It can be used to loop through the cursor object.
+
+```javaScript
+db.passengers.find().forEach(passengerData => {printjson(passengerData)})
+```
+
+NOTE: passenger data output is in "dummy-data" folder.
+
