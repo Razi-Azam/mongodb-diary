@@ -28,9 +28,9 @@ db.flightData.find()
 ]
 */
 
-//Find all flights with a distance > 10000 KM
-//here, we have a special word reserved for MongoDB is
-//$gt which means 'greater than'
+/*Find all flights with a distance > 10000 KM
+here, we have a special word reserved for MongoDB is
+$gt which means 'greater than' */
 
 db.flightData.find({distance: {$gt : 10000}})
 
@@ -48,11 +48,11 @@ db.flightData.find({distance: {$gt : 10000}})
 
 */
 
-//---------find()  vs findOne()---------------
-//find() shows all the matchings values as per the filter but
-//findOne() will show only the first occurrence of the result.
+/*---------find()  vs findOne()---------------
+find() shows all the matchings values as per the filter but
+findOne() will show only the first occurrence of the result. */
 
-//find()
+/* find() */
 db.flightData.find({distance: {$gt : 900}})
 
 /* OUTPUT
@@ -76,7 +76,7 @@ db.flightData.find({distance: {$gt : 900}})
 ]
 */
 
-//findOne()
+/* findOne() */
 db.flightData.findOne({distance: {$gt : 900}})
 
 /* OUTPUT
@@ -90,13 +90,60 @@ db.flightData.findOne({distance: {$gt : 900}})
 }
 */
 
-//---------**find() and the cursor object-----------------------
+/*---------**find() and the cursor object-----------------------*/
 
 db.passengers.find().forEach(passengerData => {printjson(passengerData)})
 
 /*
-
 result is same as passenger.json file in the dummy-data folder */
 
 
+/* ------------- PROJECTION ---------------------------*/
 
+db.passengers.find({}, {name: 1})
+
+/* --------------- OUTPUT -----------------------------
+
+[
+  {
+    _id: ObjectId('676466ddca4a7a43170d8190'),
+    name: 'Max Schwarzmueller'
+  },
+  { _id: ObjectId('676466ddca4a7a43170d8191'), name: 'Manu Lorenz' },
+  { _id: ObjectId('676466ddca4a7a43170d8192'), name: 'Chris Hayton' },
+  { _id: ObjectId('676466ddca4a7a43170d8193'), name: 'Sandeep Kumar' },
+  { _id: ObjectId('676466ddca4a7a43170d8194'), name: 'Maria Jones' },
+  {
+    _id: ObjectId('676466ddca4a7a43170d8195'),
+    name: 'Alexandra Maier'
+  },
+  { _id: ObjectId('676466ddca4a7a43170d8196'), name: 'Dr. Phil Evans' },
+  { _id: ObjectId('676466ddca4a7a43170d8197'), name: 'Sandra Brugge' },
+  { _id: ObjectId('676466ddca4a7a43170d8198'), name: 'Elisabeth Mayr' },
+  { _id: ObjectId('676466ddca4a7a43170d8199'), name: 'Frank Cube' },
+  { _id: ObjectId('676466ddca4a7a43170d819a'), name: 'Karandeep Alun' },
+  {
+    _id: ObjectId('676466ddca4a7a43170d819b'),
+    name: 'Michaela Drayer'
+  },
+  {
+    _id: ObjectId('676466ddca4a7a43170d819c'),
+    name: 'Bernd Hoftstadt'
+  },
+  { _id: ObjectId('676466ddca4a7a43170d819d'), name: 'Scott Tolib' },
+  { _id: ObjectId('676466ddca4a7a43170d819e'), name: 'Freddy Melver' },
+  { _id: ObjectId('676466ddca4a7a43170d819f'), name: 'Alexis Bohed' },
+  { _id: ObjectId('676466ddca4a7a43170d81a0'), name: 'Melanie Palace' },
+  { _id: ObjectId('676466ddca4a7a43170d81a1'), name: 'Armin Glutch' },
+  { _id: ObjectId('676466ddca4a7a43170d81a2'), name: 'Klaus Arber' },
+  {
+    _id: ObjectId('676466ddca4a7a43170d81a3'),
+    name: 'Albert Twostone'
+  }
+]
+Type "it" for more
+passengers> it
+[ { _id: ObjectId('676466ddca4a7a43170d81a4'), name: 'Gordon Black' } ]
+
+
+*/
