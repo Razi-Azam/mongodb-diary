@@ -1,4 +1,4 @@
-# This tells GitHub’s Linguist (the tool that determines language statistics) 
+# This is for  GitHub’s Linguist (the tool that determines language statistics) 
 # to treat .mongo files as MongoDB.
 
 *.mongo linguist-language=MongoDB
