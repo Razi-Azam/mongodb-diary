@@ -1,4 +1,4 @@
-//flightData
+//show flightData
 db.flightData.find()
 /*
 [
