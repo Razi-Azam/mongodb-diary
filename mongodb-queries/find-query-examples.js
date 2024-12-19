@@ -177,3 +177,75 @@ db.passengers.find({}, {name: 1, _id: 0})
 ]
 
 */
+
+//---------- Accessing Data ---------------
+
+//Q. Get the passenger named "Albert Twostone"
+// from the passengers db.
+db.passengers.find({name: 'Albert Twostone'})
+
+/*----------- OUTPUT --------------
+[
+  {
+    _id: ObjectId('676466ddca4a7a43170d81a3'),
+    name: 'Albert Twostone',
+    age: 68,
+    hobbies: [ 'Reading', 'Cooking' ]
+  }
+]
+*/
+
+//Q. Get the "hobbies" of 
+// the passenger named "Albert Twostone".
+db.passengers.findOne({name: 'Albert Twostone'}).hobbies
+
+/*----------- OUTPUT --------------
+[ 'Reading', 'Cooking' ]
+*/
+
+// Q Find all passengers passengers
+// whose hobby is 'Cooking
+db.passengers.find({hobbies: "Cooking"})
+
+
+//Q *in flightData, Find all the flights
+// which are "on-time
+db.flightData.find({"status.description": "on-time"})
+
+/*----------- OUTPUT --------------
+[
+  {
+    _id: ObjectId('6761d05a963d46e6510d8190'),
+    departureAirport: 'MUC',
+    arrivalAirport: 'SFO',
+    aircraft: 'Airbus A380',
+    distance: 12000,
+    intercontinental: true,
+    status: { description: 'on-time', lastUpdate: '1 hour ago' }
+  },
+  {
+    _id: ObjectId('6761d05a963d46e6510d8191'),
+    departureAirport: 'LHR',
+    arrivalAirport: 'TXL',
+    aircraft: 'Airbus A320',
+    distance: 950,
+    intercontinental: false,
+    status: { description: 'on-time', lastUpdate: '1 hour ago' }
+  },
+  {
+    _id: ObjectId('6761d0ad963d46e6510d8192'),
+    departureAirport: 'TXL',
+    arrivalAirport: 'LHR',
+    distance: 700,
+    intercontinental: false,
+    status: { description: 'on-time', lastUpdate: '1 hour ago' }
+  }
+]
+*/
+
+
+
+
+/*----------- OUTPUT --------------
+
+*/

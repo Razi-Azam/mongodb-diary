@@ -1,0 +1,35 @@
+[
+    {
+        "firstName": "Amogh",
+        "lastName": "Rawat",
+        "age": 27,
+        "history": [
+            {
+                "disease": "fever",
+                "treatment": "Paracetamol tablets"
+            }
+        ]
+    },
+    {
+        "firstName": "Bhagyashree",
+        "lastName": "Pati",
+        "age": 30,
+        "history": [
+            {
+                "disease": "Dental Issue",
+                "treatment": "RCT"
+            }
+        ]
+    },
+    {
+        "firstName": "Nick",
+        "lastName": "Jones",
+        "age": 31,
+        "history": [
+            {
+                "disease": "Hair Fall",
+                "treatment": "Hair Spa"
+            }
+        ]
+    }
+]

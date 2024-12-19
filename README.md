@@ -248,4 +248,124 @@ Advantage:
 
 [Go to Top ⬆️ ](#contents)
 
----
+### Embedded Document:
+- In MongoDB, embedded documents are documents within other documents (nesting).
+- Allows nesting upto 100 of documents.
+- Maximum size of the doucment is 16 mb.
+- Instead of creating separate collections for related data, we can store related information inside a single document.
+- This allows you to model data hierarchies in a natural way.
+
+**Lets update the flightData with nested document**
+```javaScript
+
+flightData> db.flightData.updateMany({}, {$set: {status: {description: "on-time", lastUpdate: "1 hour ago"}}})
+
+```
+<details>
+<summary>OUTPUT</Summary>
+
+```javaScript
+[
+  {
+    _id: ObjectId('6761d05a963d46e6510d8190'),
+    departureAirport: 'MUC',
+    arrivalAirport: 'SFO',
+    aircraft: 'Airbus A380',
+    distance: 12000,
+    intercontinental: true,
+    status: { description: 'on-time', lastUpdate: '1 hour ago' }
+  },
+  {
+    _id: ObjectId('6761d05a963d46e6510d8191'),
+    departureAirport: 'LHR',
+    arrivalAirport: 'TXL',
+    aircraft: 'Airbus A320',
+    distance: 950,
+    intercontinental: false,
+    status: { description: 'on-time', lastUpdate: '1 hour ago' }
+  },
+  {
+    _id: ObjectId('6761d0ad963d46e6510d8192'),
+    departureAirport: 'TXL',
+    arrivalAirport: 'LHR',
+    distance: 700,
+    intercontinental: false,
+    status: { description: 'on-time', lastUpdate: '1 hour ago' }
+  }
+]
+```
+
+</details>
+
+**Arrays in Documents**
+- we can also store an array inside a document.
+- In the passenger database, lets add a nested document having an array of hobbies.
+
+```javaScript
+passengers> db.passengers.updateOne({name: 'Albert Twostone'}, {$set: {hobbies: ["Reading", "Cooking"]}})
+```
+
+<details>
+<summary>OUTPUT</Summary>
+
+```javaScript
+[
+  {
+    _id: ObjectId('676466ddca4a7a43170d81a3'),
+    name: 'Albert Twostone',
+    age: 68,
+    hobbies: [ 'Reading', 'Cooking' ]
+  }
+]
+```
+
+</details>
+
+
+
+#### Accessing Data ####
+
+- Get the passenger named "Albert Twostone" from the passengers db.
+
+```javaScript
+db.passengers.find({name: 'Albert Twostone'})
+```
+
+**OUTPUT**
+```javaScript
+[
+  {
+    _id: ObjectId('676466ddca4a7a43170d81a3'),
+    name: 'Albert Twostone',
+    age: 68,
+    hobbies: [ 'Reading', 'Cooking' ]
+  }
+]
+```
+
+- Get the "hobbies" of the passenger named "Albert Twostone".
+
+```javaScript
+db.passengers.findOne({name: 'Albert Twostone'}).hobbies
+```
+
+**OUTPUT**
+```javaScript
+[ 'Reading', 'Cooking' ]
+```
+
+**Find all passengers passengers whose hobby is 'Cooking'**
+
+```javaScript
+db.passengers.find({hobbies: "Cooking"})
+```
+
+**In flightData, Find all the flights which are "on-time"**
+
+- here, use "." to access the nested document.
+
+```javaScript
+db.flightData.find({"status.description": "on-time"})
+```
+
+[Go to Top ⬆️ ](#contents)

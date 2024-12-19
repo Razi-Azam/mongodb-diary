@@ -45,5 +45,42 @@ db.flightData.update({_id: ObjectId('6761d05a963d46e6510d8190')}, {$set : {delay
 //to replcae the existing data without the ID, use 'replcaeOne'
 db.flightData.replaceOne({_id: ObjectId('6761d05a963d46e6510d8190')}, {departureAirport: "MUC", arrivalAirport: "SFO", aircraft: "Airbus A380", distance: 12000,intercontinental: true })
 
-/*
+
+
+// Embedded document example
+
+//lets update the flightData with the nested document
+db.flightData.updateMany({}, {$set: {status: {description: "on-time", lastUpdate: "1 hour ago"}}})
+
+
+db.flightData.find()
+/*----------- OUTPUT -------------------
+[
+  {
+    _id: ObjectId('6761d05a963d46e6510d8190'),
+    departureAirport: 'MUC',
+    arrivalAirport: 'SFO',
+    aircraft: 'Airbus A380',
+    distance: 12000,
+    intercontinental: true,
+    status: { description: 'on-time', lastUpdate: '1 hour ago' }
+  },
+  {
+    _id: ObjectId('6761d05a963d46e6510d8191'),
+    departureAirport: 'LHR',
+    arrivalAirport: 'TXL',
+    aircraft: 'Airbus A320',
+    distance: 950,
+    intercontinental: false,
+    status: { description: 'on-time', lastUpdate: '1 hour ago' }
+  },
+  {
+    _id: ObjectId('6761d0ad963d46e6510d8192'),
+    departureAirport: 'TXL',
+    arrivalAirport: 'LHR',
+    distance: 700,
+    intercontinental: false,
+    status: { description: 'on-time', lastUpdate: '1 hour ago' }
+  }
+]
 */
