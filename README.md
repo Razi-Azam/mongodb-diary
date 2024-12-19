@@ -8,6 +8,12 @@
 
 2. [CRUD Operations & MongoDB](#crud-oeprations--mongodb)
 
+3. [Find Concepts and exmaples](#-find-concepts-and-examples)
+
+4. [forEach](#foreach)
+
+5. [Projection](#projection)
+
 
 
 ## Connect to the MongoDB instance
@@ -101,6 +107,7 @@ db.products.insertOne({name: "A Computer", price: 1229.99, description: "A high 
 
 ![alt text](image-2.png)
 
+---
 
 [Go to Top ⬆️ ](#contents)
 
@@ -170,6 +177,11 @@ db.collectionName.deleteMany({commonKeyName: "common value"})
 
 ```
 
+---
+
+[Go to Top ⬆️ ](#contents)
+
+---
 
 ### 🔎 find() concepts and examples
 
@@ -194,7 +206,13 @@ db.flightData.find({distance: {$gt : 10000}})
 db.passengers.find().toArray()
 ```
 
-**forEach()**
+---
+
+[Go to Top ⬆️ ](#contents)
+
+---
+
+### forEach()
 - It can be used to loop through the cursor object.
 
 ```javaScript
@@ -218,10 +236,16 @@ db.passengers.find({}, {name: 1})
 db.passengers.find({}, {name: 1, _id: 0})
 ```
 
-📝 Note: Project is conceptually  smiliar to ```Select``` statement in SQL to specify the fields you want to retrieve from a table.
+📝 Note: Projection is conceptually  smiliar to ```Select``` statement in SQL to specify the fields you want to retrieve from a table.
 
 Advantage:
 - Increases query efficiency.
 - Reduces memory and network overhead.
 - Simplifies data handling.
 - Enhances security by filtering out unnecessary fields.
+
+---
+
+[Go to Top ⬆️ ](#contents)
+
+---
