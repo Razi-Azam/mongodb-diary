@@ -203,3 +203,25 @@ db.passengers.find().forEach(passengerData => {printjson(passengerData)})
 
 NOTE: passenger data output is in "dummy-data" folder.
 
+### Projection
+- It lets us include or exclude specific fields in query results, reducing data load and improving efficiency.
+- By default, all fields are returned, but projection fetches only the fields you need.
+
+```javaScript
+db.passengers.find({}, {name: 1})
+```
+- The above query uses projection to filter out only the name.
+- { name: 1 }: Includes the name field in the query result.
+- Default Behavior: MongoDB includes the _id field automatically unless explicitly excluded (_id: 0).
+
+```javaScript
+db.passengers.find({}, {name: 1, _id: 0})
+```
+
+📝 Note: Project is conceptually  smiliar to ```Select``` statement in SQL to specify the fields you want to retrieve from a table.
+
+Advantage:
+- Increases query efficiency.
+- Reduces memory and network overhead.
+- Simplifies data handling.
+- Enhances security by filtering out unnecessary fields.

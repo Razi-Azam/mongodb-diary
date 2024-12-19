@@ -145,5 +145,35 @@ Type "it" for more
 passengers> it
 [ { _id: ObjectId('676466ddca4a7a43170d81a4'), name: 'Gordon Black' } ]
 
+*/
+
+// to exclude tthe _id field, use _id: 0
+db.passengers.find({}, {name: 1, _id: 0})
+
+
+/* --------------- OUTPUT -----------------------------
+
+[
+  { name: 'Max Schwarzmueller' },
+  { name: 'Manu Lorenz' },
+  { name: 'Chris Hayton' },
+  { name: 'Sandeep Kumar' },
+  { name: 'Maria Jones' },
+  { name: 'Alexandra Maier' },
+  { name: 'Dr. Phil Evans' },
+  { name: 'Sandra Brugge' },
+  { name: 'Elisabeth Mayr' },
+  { name: 'Frank Cube' },
+  { name: 'Karandeep Alun' },
+  { name: 'Michaela Drayer' },
+  { name: 'Bernd Hoftstadt' },
+  { name: 'Scott Tolib' },
+  { name: 'Freddy Melver' },
+  { name: 'Alexis Bohed' },
+  { name: 'Melanie Palace' },
+  { name: 'Armin Glutch' },
+  { name: 'Klaus Arber' },
+  { name: 'Albert Twostone' }
+]
 
 */
