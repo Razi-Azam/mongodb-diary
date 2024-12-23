@@ -6,14 +6,17 @@
 
 1. [Get Started with Mongosh](#connect-to-the-mongodb-instance)
 
-2. [CRUD Operations & MongoDB](#crud-oeprations--mongodb)
+    1.1 [CRUD Operations & MongoDB](#crud-oeprations--mongodb)
 
-3. [Find Concepts and exmaples](#-find-concepts-and-examples)
+    1.2. [Find Concepts and exmaples](#-find-concepts-and-examples)
 
-4. [forEach](#foreach)
+    1.3. [forEach](#foreach)
 
-5. [Projection](#projection)
+    1.4. [Projection](#projection)
 
+2. [Schemas and Relations](#schemas-and-relations)
+
+    2.1. [Reset Databases](#reste-databases)
 
 
 ## Connect to the MongoDB instance
@@ -368,4 +371,23 @@ db.passengers.find({hobbies: "Cooking"})
 db.flightData.find({"status.description": "on-time"})
 ```
 
+
 [Go to Top ⬆️ ](#contents)
+
+
+## Schemas and Relations
+
+### Reste Databases
+
+```javaScript
+//load the database first
+use databaseName
+
+//drop the database
+db.dropDatabase()
+
+//drop the collection in a database
+db.myCollection.drop()
+```
+
+### 
