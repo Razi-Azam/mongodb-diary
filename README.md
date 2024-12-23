@@ -390,4 +390,22 @@ db.dropDatabase()
 db.myCollection.drop()
 ```
 
-### 
+### Schema-less
+- "schema-less" means that the database does 
+not require a fixed structure or schema for its 
+documents in a collection. Unlike relational 
+databases (e.g., MySQL, PostgreSQL), where every 
+row in a table must adhere to a strict schema 
+(i.e., same columns with the same data types), 
+MongoDB collections allow documents to have 
+varying structures.
+
+### Benefits of Schema-less Design:
+- Flexibility: Easily adapt to changes in data requirements without costly migrations.
+- Rapid Development: Developers can iterate faster without worrying about rigid schemas.
+- Handling diverse data: Ideal for scenarios where data has irregular or constantly evolving structures (e.g., user profiles, IoT data).
+
+### Drawbacks:
+- Inconsistency risk: Without a schema, it's easier to make mistakes like missing fields or inconsistent data types.
+- Validation overhead: You'll need to handle schema validation at the application level (or optionally use MongoDB schema validation rules).
+
