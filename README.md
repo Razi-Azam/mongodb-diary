@@ -16,7 +16,8 @@
 
 2. [Schemas and Relations](#schemas-and-relations)
 
-    2.1. [Reset Databases](#reste-databases)
+   2.1. [Reset Databases](#reste-databases)
+   2.2. [Data Types](#data-types)
 
 
 ## Connect to the MongoDB instance
@@ -440,3 +441,11 @@ varying structures.
 
 [Go to Top ⬆️ ](#contents)
 
+
+
+
+
+
+
+
+[Go to Top ⬆️ ](#contents)
