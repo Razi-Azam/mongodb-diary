@@ -17,7 +17,10 @@
 2. [Schemas and Relations](#schemas-and-relations)
 
    2.1. [Reset Databases](#reste-databases)
+   
    2.2. [Data Types](#data-types)
+   
+   2.3. [Relations](#relations)
 
 
 ## Connect to the MongoDB instance
@@ -441,11 +444,39 @@ varying structures.
 
 [Go to Top ⬆️ ](#contents)
 
+## Relations
 
+- In MongoDB, relationships between data can be modeled using two main approaches:
+1. Embedded Documents (One-to-One or One-to-Many)
 
+   - What it is: Store related data within the same document by embedding one document inside another.
+   - When to use:
+      - When data is tightly related.
+      - When you frequently retrieve the entire dataset together.
+    - Advantages:
+      - Simpler queries.
+      - Fast access to related data.
+  - Example:
 
+  ```javaScript
+ {
+  _id: ObjectId('677c1f3835fa05053d0d8191'),
+  name: 'max',
+  age: 29,
+  diseaseSummary: { diseases: [ 'cold', 'broken leg' ] }
+}
 
+  ``` 
 
+2. References (One-to-Many or Many-to-Many)
+
+    - What it is: Store related data in separate documents and reference them using their _id.
+    - When to use:
+      - When related data is large or frequently accessed independently.
+      - When the relationship is complex or involves many documents.
+
+    - Advantages:
+      - Scalability and flexibility for complex relationships. 
 
 
 [Go to Top ⬆️ ](#contents)
