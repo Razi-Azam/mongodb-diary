@@ -458,7 +458,7 @@ varying structures.
       - Fast access to related data.
   - Example:
 
-  ```javaScript
+```javaScript
  {
   _id: ObjectId('677c1f3835fa05053d0d8191'),
   name: 'max',
@@ -466,7 +466,7 @@ varying structures.
   diseaseSummary: { diseases: [ 'cold', 'broken leg' ] }
 }
 
-  ``` 
+``` 
 
 2. References (One-to-Many or Many-to-Many)
 
@@ -477,6 +477,52 @@ varying structures.
 
     - Advantages:
       - Scalability and flexibility for complex relationships. 
+
+
+[Go to Top ⬆️ ](#contents)
+
+
+### One To One Relation - Embedded
+
+```javaScript
+{
+  _id: ObjectId('677c1f3835fa05053d0d8191'),
+  name: 'max',
+  age: 29,
+  diseaseSummary: { diseases: [ 'cold', 'broken leg' ] }
+}
+
+```
+
+### One To One Relation - References
+
+```javaScript
+//persons collection
+cardData> db.persons.find()
+[
+  {
+    _id: ObjectId('677d7c19b5724109a80d8191'),
+    name: 'Max',
+    age: 29,
+    salary: 3000
+  }
+]
+
+//cars collection
+cardData> db.cars.find()
+[
+  {
+    _id: ObjectId('677d7c8cb5724109a80d8192'),
+    model: 'BMW',
+    price: 40000,
+    owner: ObjectId('677d7c19b5724109a80d8191')
+  }
+]
+
+//here, the owner field in cars collection is the foreign key that helps in fetching the owner info of the car
+
+```
+
 
 
 [Go to Top ⬆️ ](#contents)
