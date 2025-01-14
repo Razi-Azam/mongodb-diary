@@ -523,6 +523,98 @@ cardData> db.cars.find()
 
 ```
 
+### One to Many Relation
+- A One-to-Many relationship in a database occurs when a single document in one collection is related to multiple documents in another collection.
+- Example:
+  - One question can have many answers.
+  - One customer can place many orders.
 
+- This relationship can be modeled in two ways:
+  - Referenced Form: Using foreign keys to link collections (normalized data).
+  - Embedded Form: Embedding related data as arrays within a single document (denormalized data).
+
+### One to Many Relation - Embedded
+
+```javaScript
+//show the collection
+db.questions.find()
+
+//output
+[
+  {
+    _id: ObjectId('64a1c5e3b19a1234d5678a01'),
+    questionText: 'What is the capital of France?',
+    answers: [
+      {
+        _id: ObjectId('64a1c5e3b19a1234d5678b01'),
+        answerText: 'Paris'
+      }
+    ]
+  },
+  {
+    _id: ObjectId('64a1c5e3b19a1234d5678a02'),
+    questionText: "Which programming language is known as 'write once, run anywhere'?",
+    answers: [
+      { _id: ObjectId('64a1c5e3b19a1234d5678b02'), answerText: 'Java' },
+      { _id: ObjectId('64a1c5e3b19a1234d5678b04'), answerText: 'C++' }
+    ]
+  },
+  {
+    _id: ObjectId('64a1c5e3b19a1234d5678a03'),
+    questionText: 'Which planet is known as the Red Planet?',
+    answers: [
+      { _id: ObjectId('64a1c5e3b19a1234d5678b03'), answerText: 'Mars' }
+    ]
+  }
+]
+```
+
+### One to Many Relation - References
+
+```javaScript
+//show question collection
+ db.questions.find()
+ 
+[
+  {
+    _id: ObjectId('64a1c5e3b19a1234d5678a01'),
+    questionText: 'What is the capital of France?'
+  },
+  {
+    _id: ObjectId('64a1c5e3b19a1234d5678a02'),
+    questionText: "Which programming language is known as 'write once, run anywhere'?"
+  },
+  {
+    _id: ObjectId('64a1c5e3b19a1234d5678a03'),
+    questionText: 'Which planet is known as the Red Planet?'
+  }
+]
+
+//show answer collection
+db.answers.find()
+
+[
+  {
+    _id: ObjectId('64a1c5e3b19a1234d5678b01'),
+    answerText: 'Paris',
+    questionId: ObjectId('64a1c5e3b19a1234d5678a01')
+  },
+  {
+    _id: ObjectId('64a1c5e3b19a1234d5678b02'),
+    answerText: 'Java',
+    questionId: ObjectId('64a1c5e3b19a1234d5678a02')
+  },
+  {
+    _id: ObjectId('64a1c5e3b19a1234d5678b03'),
+    answerText: 'Mars',
+    questionId: ObjectId('64a1c5e3b19a1234d5678a03')
+  },
+  {
+    _id: ObjectId('64a1c5e3b19a1234d5678b04'),
+    answerText: 'C++',
+    questionId: ObjectId('64a1c5e3b19a1234d5678a02')
+  }
+]
+```
 
 [Go to Top ⬆️ ](#contents)
