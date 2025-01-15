@@ -617,4 +617,58 @@ db.answers.find()
 ]
 ```
 
+### Many to Many Relations
+- A many-to-many relationship exists when multiple documents in one collection can be related to multiple documents in another collection. 
+- Examples:
+  - Students enrolled in multiple courses and courses having multiple students.
+  - Authors contributing to multiple books and books written by multiple authors.
+
+### Many to Many Relation - Embedded
+- One Customer can buy many products (has many orders) and a product belongs to many customers.
+
+```JavaScript
+db.customers.find()
+
+//customer collection with order details Embedded
+{
+  _id: ObjectId('6787e6758d27284d300d8191'),
+  name: 'Max',
+  age: 29,
+  orders: [ { title: 'A Book', price: 12.99, quantity: 2 } ]
+}
+```
+
+
+### Many to Many Relation - References
+Books ∞ ↔ ∞ Authors
+- One book has many authors, an author belongs to many books.
+
+```javaScript
+//auhtors collection
+[
+  {
+    _id: ObjectId('6787f9428d27284d300d8195'),
+    name: 'Max Schwarz',
+    age: 29,
+    address: { street: 'Main' }
+  },
+  {
+    _id: ObjectId('6787f9428d27284d300d8196'),
+    name: 'Manual Lor',
+    age: 30,
+    address: { street: 'Tree' }
+  }
+]
+
+//books collection
+{
+  _id: ObjectId('6787f8358d27284d300d8194'),
+  name: 'My fav Book',
+  authors: [
+    ObjectId('6787f9428d27284d300d8195'),
+    ObjectId('6787f9428d27284d300d8196')
+  ]
+}
+```
+
 [Go to Top ⬆️ ](#contents)
