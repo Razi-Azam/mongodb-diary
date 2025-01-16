@@ -672,3 +672,29 @@ Books ∞ ↔ ∞ Authors
 ```
 
 [Go to Top ⬆️ ](#contents)
+
+## Lookup
+- The $lookup operator is used to perform joins between 
+collections. 
+- It allows us to combine data from two collections in a 
+single query, similar to the JOIN operation in SQL. 
+- However, $lookup works differently since MongoDB is a 
+NoSQL database and doesn't have traditional table 
+relationships.
+
+- When to Use $lookup?
+  - When you need data from multiple collections in a 
+  single query.
+  - For generating reports that combine user data, 
+  transaction logs, or other related information.
+
+Example
+```javaScript
+db.books.aggregate([
+    {$lookup: {from: "authors", localField: "authors", foreignField: "_id", as: "creators"}}
+])
+```
+
+- authors is the another collection.
+- authors is the local field of the books collection.
+- foreignField is the _id in the authors collection.
