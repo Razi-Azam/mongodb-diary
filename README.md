@@ -22,6 +22,7 @@
    
    2.3. [Relations](#relations)
 
+3. [Lookup](#lookup)
 
 ## Connect to the MongoDB instance
 ```
@@ -698,3 +699,15 @@ db.books.aggregate([
 - authors is the another collection.
 - authors is the local field of the books collection.
 - foreignField is the _id in the authors collection.
+
+
+## Schema validation
+- Schema validation in MongoDB allows us to define rules for documents in a collection, ensuring that data follows a specific format.
+
+### Key Benefits of Schema Validation
+- Prevents incorrect data from being stored.
+- Helps maintain data consistency.
+- Allows flexibility while enforcing necessary rules.
+
+NOTE: Refer to `blog.sh` and `validator.js` for the detailed query example about schema validation. Also,
+refer to `changeValidation.js` to know how to change validation that will write warnings in the log files.
